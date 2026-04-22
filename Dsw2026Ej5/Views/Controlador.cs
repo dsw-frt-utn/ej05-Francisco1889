@@ -25,7 +25,7 @@ public class Controlador
             Vehiculo? vehiculo = Persistencia.GetVehiculo(entry.Key);
             if (vehiculo != null)
             {
-                consumo = vehiculo.CalcularConsumo(entry.Value);
+                consumo = vehiculo.CalcularConsumo(entry.Value); //aca tengo que poner mi punto de quiebre porque accede al metodo (podes ver los return desde debug, ventana y locales)
                 consumoElectricos += vehiculo.EsDe(VehiculoTipo.Electrico) ? consumo : 0;
                 consumoCombustible += vehiculo.EsDe(VehiculoTipo.Combustible) ? consumo : 0;
             }
