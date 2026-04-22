@@ -28,6 +28,17 @@ public class VehiculoCombustible: Vehiculo
 
     public override double CalcularConsumo(double kilometros)
     {
-        return kilometros * kilometrosPorLitro;
+        double consumo;
+        int antiguedad = DateTime.Now.Year - GetAnio(); //con esto puedo hacer que se actualize el año pero seria mas especifico si en anio estuvieran los meses y dias 
+
+        if (antiguedad >= 5)
+        {
+            consumo = (kilometros / kilometrosPorLitro) + (kilometros / 15) * litrosExtra; //se suman los litros extra cada 15km 
+        }
+        else
+        {
+            consumo = (kilometros / kilometrosPorLitro);
+        }
+        return consumo;
     }
 }
